@@ -2,12 +2,13 @@ Best Practice for Importing Blender Objects into Unity
 
 - Select all objects to be exported.
 
-- Export Blender assets as .fbx files with Path Mode set to Copy and icon checked. This ensures all textures are included. Click "Limit to Selected Objects". Make sure "Bake Animation" and "Add Leaf Bones" are UNCHECKED. Have Geometry Smoothing set to "Face." 
+- Export Blender assets as .fbx files with Path Mode set to Copy and icon checked. This ensures all textures are included. Click "Limit to Selected Objects". Make sure "Bake Animation" and "Add Leaf Bones" are UNCHECKED IF object is NOT ANIMATED. Have Geometry Smoothing set to "Face" in most cases.
 
 - Right-click and do "Import New Asset" and bring the .fbx file.
 
-- Right-click, do "Import New Asset", and bring texture image files.
+- Right-click, do "Import New Asset", and bring texture image files into same folder where .fbx file is. Automatically, the object's textures will appear.
 
+IF NECESSARY:
 - Create new materials
    - Use Autodesk Interactive shader
    - Albedo is the Base Color Map.
