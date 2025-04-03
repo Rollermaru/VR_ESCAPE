@@ -1,0 +1,14 @@
+- Downloaded following skybox from Asset Store: https://assetstore.unity.com/packages/2d/textures-materials/sky/10-skyboxes-pack-day-night-32236?srsltid=AfmBOopVkqcuDhQSNxhy_O5PYOb62-676ctEuPi2ZO2J5Ps0NADr697S
+- Created new scene
+- Added two cubes to the scene for the floor
+- Imported floor tile texture from OneDrive
+- Exported Blender factory asset as a .fbx file with proper settings
+    - BlenderImportTutorial.txt
+- Imported factory asset into Unity scene
+- Imported following textures from OneDrive to Unity
+    - Metal Painted Matte
+    - Metal Gold Paint
+    - Metal Bronze Worn
+    - Metal Corroded Heavy Roughness Metalness
+    - Metal Corroded Heavy Disp Metalness (2nd one)
+- Things were looking okay, but GitHub said file size is too large for a push
