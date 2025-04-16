@@ -1,0 +1,2 @@
+C:\Users\ninja\Unity_Projects\VR_ESCAPE\My project_2\My project\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\ninja\Unity_Projects\VR_ESCAPE\My project_2\My project\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
