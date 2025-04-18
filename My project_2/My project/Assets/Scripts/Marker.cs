@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -12,16 +11,14 @@ public class Marker : MonoBehaviour
     public float penWidth;
     public Color[] penColors;
 
-    // [Header("Hands & Grabbables")]
-    // public Grabbable oculusGrabbable;
-    // public GrabInteractable grabInteractable;
+    [Header("Hands & Grabbables")]
+    // Add grabbers and grabbable
 
     // Something about keeping track of all of our drawings
-    private LineRenderer currentDrawing_beta;
+    private LineRenderer currentDrawing_1;
     private GameObject currentDrawing;
     private int index;  // count amount of drawings we have?
     private int currColorIndex;
-
 
 
     private void Start()
@@ -32,56 +29,64 @@ public class Marker : MonoBehaviour
         var grab = GetComponent<XRGrabInteractable>();
         grab.activated.AddListener(XRGrabInteractable_Activated);
         grab.deactivated.AddListener(XRGrabInteractable_Deactivated);
-        grab.selectEntered.AddListener(XRGrabInteractable_Selected);
     }
 
     private void Update()
     {
+
+        // bool isRightHandDraw = grabInteractable.IsSelectedByRight() && OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger);
+        // bool isLeftHandDraw = grabInteractable.IsSelectedByLeft() && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger);
+        // bool isRightHandDraw = isGrabbed && OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger);
+        // bool isLeftHandDraw = isGrabbed && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger);
+        // bool isRightHandDraw = isGrabbed;
+        // bool isLeftHandDraw = isGrabbed;
+        // bool isRightHandDraw = doBeSelected;
+        // bool isLeftHandDraw = doBeSelected;
+
+        // if (isRightHandDraw || isLeftHandDraw) {
+        //     Draw();
+        // }
         // else if (currentDrawing != null) {
         //     currentDrawing = null;
         // } 
         // else if (OVRInput.GetDown(OVRInput.Button.One)) {
         //     SwitchColor();
         // }
+
+        // else if (OVRInput.GetDown(OVRInput.Button.Two)) {
+        //     Erase();
+        // }
     }
 
-    private void XRGrabInteractable_Activated(ActivateEventArgs eventArgs)
-    {
+    private void XRGrabInteractable_Activated(ActivateEventArgs eventArgs) {
         BeginDrawing();
     }
 
-    private void XRGrabInteractable_Deactivated(DeactivateEventArgs eventArgs)
-    {
+    private void XRGrabInteractable_Deactivated(DeactivateEventArgs eventArgs) {
         EndDrawing();
     }
 
-    private void XRGrabInteractable_Selected(SelectEnterEventArgs eventArgs)
-    {
-        if(OVRInput.GetDown(OVRInput.Button.One)) {
-            SwitchColor();
+    public void Draw() {
+        // if there is no drawing, start a new One
+        if (currentDrawing_1 == null) {
+            index = 0;
+            currentDrawing_1 = new GameObject().AddComponent<LineRenderer>();
+            currentDrawing_1.material = drawingMat;
+            currentDrawing_1.startColor = currentDrawing_1.endColor = penColors[currColorIndex];
+            currentDrawing_1.startWidth = currentDrawing_1.endWidth = penWidth;
+            currentDrawing_1.positionCount = index + 1; // or, just 1
+            currentDrawing_1.SetPosition(0, tip.transform.position);
         }
-    }
 
-    private void BeginDrawing()
-    {
-        currentDrawing = new GameObject("Drawing");
-        var trail = currentDrawing.AddComponent<TrailRenderer>();
-        trail.time = Mathf.Infinity;
-        trail.material = drawingMat;
-        trail.startWidth = .05f;
-        trail.endWidth = .05f;
-        trail.minVertexDistance = .02f;
-
-        currentDrawing_beta.transform.parent = tip.transform;
-        currentDrawing_beta.transform.localPosition = Vector3.zero;
-        currentDrawing_beta.transform.localRotation = Quaternion.identity;
-    }
-
-    private void EndDrawing()
-    {
-        currentDrawing.transform.parent = null;
-        currentDrawing.GetComponent<TrailRenderer>().emitting = false;
-        currentDrawing = null;
+        // If there is a drawing, continue drawing
+        else {
+            var currentPosition = currentDrawing_1.GetPosition(index);
+            if (Vector3.Distance(currentPosition, tip.transform.position) > 0.01f) {
+                index++;
+                currentDrawing_1.positionCount = index + 1;
+                currentDrawing_1.SetPosition(index, tip.transform.position);
+            }
+        }
     }
 
     private void SwitchColor() {
@@ -94,19 +99,39 @@ public class Marker : MonoBehaviour
         tipMat.color = penColors[currColorIndex];
     }
 
-    // private void Erase() {
-    //     Debug.Log("Erasing");
-    //     index = 0;
-    //     currentDrawing_beta.positionCount = index + 1;
-    //     while (currentDrawing_beta != null) {
-    //         currentDrawing_beta = null;
-    //         index = index + 1;
-    //         currentDrawing_beta.positionCount = index + 1;
-    //     }
+    private void Erase() {
+        Debug.Log("Erasing");
+        index = 0;
+        currentDrawing_1.positionCount = index + 1;
+        while (currentDrawing_1 != null) {
+            currentDrawing_1 = null;
+            index = index + 1;
+            currentDrawing_1.positionCount = index + 1;
+        }
 
-    //     index = 0;
-    //     currentDrawing_beta.positionCount = index + 1;
-    // }
+        index = 0;
+        currentDrawing_1.positionCount = index + 1;
+    }
 
-    
+    private void BeginDrawing()
+    {
+        currentDrawing = new GameObject("Drawing");
+        var trail = currentDrawing.AddComponent<TrailRenderer>();
+        trail.time = Mathf.Infinity;
+        trail.material = drawingMat;
+        trail.startWidth = .05f;
+        trail.endWidth = .05f;
+        trail.minVertexDistance = .02f;
+
+        currentDrawing.transform.parent = tip.transform;
+        currentDrawing.transform.localPosition = Vector3.zero;
+        currentDrawing.transform.localRotation = Quaternion.identity;
+    }
+
+    private void EndDrawing()
+    {
+        currentDrawing.transform.parent = null;
+        currentDrawing.GetComponent<TrailRenderer>().emitting = false;
+        currentDrawing = null;
+    }
 }
