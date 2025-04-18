@@ -1,33 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Normal.Realtime;
-using static Normal.Realtime.Realtime; // Make sure to include Normcore's namespace
+using UnityEngine;
+using static Normal.Realtime.Realtime;
+
 public class KeycardSpawner : MonoBehaviour
 {
+
     public GameObject keycardPrefab;
 
-    private void Start()
-    {
-        // Ensure the keycard is hidden when the scene starts
-        keycardPrefab.SetActive(false);
-    }
+    public Transform spawnPoint;
 
+    void Start()
+    {
+        // You don't need to SetActive(false) on the prefab asset.
+    }
 
     public void SpawnKeyCard()
     {
-        // You need to use the prefab's name as it’s registered in Normcore’s Sync Prefabs list.
-        string prefabName = keycardPrefab.name;
+        // 1) Make sure your Realtime component on the scene has registered
+        //    “keycardPrefab.name” in its Sync Prefabs slot (so Normcore can spawn it),
+        // 2) Then call Instantiate and hold the returned clone:
+        var spawnedCard = Realtime.Instantiate(
+            keycardPrefab.name,
+            spawnPoint.position,
+            spawnPoint.rotation,
+            new InstantiateOptions()
+        );
 
-        // Create or use default instantiation options. You can create a new instance of InstantiateOptions,
-        // or if you want the default behavior, you can pass a new empty options object.
-        InstantiateOptions options = new InstantiateOptions();
-        // Optionally you can set properties on options here, for example:
-        // options.destroyWhenOwnerLeaves = true;
-        // options.useInstance = true; // if you have multiple Normcore instances in your scene
+        // (optional) initialize your Keycard component on the clone:
+        var cardComp = spawnedCard.GetComponent<Keycard>();
+        if (cardComp != null)
+            cardComp.cardID = System.Guid.NewGuid().ToString();
 
-        // Now call the new overload of Realtime.Instantiate.
-        keycardPrefab.SetActive(true);
-        Realtime.Instantiate(prefabName, transform.position, transform.rotation, options);
+        // no need to SetActive(true)—the clone comes in active by default.
     }
 }

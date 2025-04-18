@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realtimeView: {fileID: 8060319068886544430}
   realtimeTransform: {fileID: 3404339046017275521}
-  xRGrabInteractable: {fileID: 1866589696518475974, guid: 7d4f53f9ad4c34d4f9424b2af339e333, type: 3}
+  xRGrabInteractable: {fileID: 2124367106058182255, guid: 8ce1bf9488b9b934e9896a2d1912dec7, type: 3}
 --- !u!1 &3700054474058377235
 GameObject:
   m_ObjectHideFlags: 0

@@ -3466,7 +3466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffbd3f884fc80a4dbab3a05164c0157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keycardPrefab: {fileID: 0}
+  keycardPrefab: {fileID: 3164804395554249572, guid: 8ce1bf9488b9b934e9896a2d1912dec7, type: 3}
+  spawnPoint: {fileID: 0}
 --- !u!114 &8884680300985871304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3526,7 +3527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realtimeView: {fileID: 8884680300985871304}
   realtimeTransform: {fileID: 2132580218753113501}
-  xRGrabInteractable: {fileID: 1070714938819678698, guid: 8ce1bf9488b9b934e9896a2d1912dec7, type: 3}
+  xRGrabInteractable: {fileID: 2124367106058182255, guid: 8ce1bf9488b9b934e9896a2d1912dec7, type: 3}
 --- !u!1 &7616251965746167644
 GameObject:
   m_ObjectHideFlags: 0

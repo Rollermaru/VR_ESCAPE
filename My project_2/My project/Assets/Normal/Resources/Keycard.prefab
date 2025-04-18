@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &269061951352616990
 Transform:
   m_ObjectHideFlags: 0
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.10616033, z: -0, w: 0.99434906}
   m_LocalPosition: {x: -0.030871153, y: 0.7509999, z: 0.29787445}
-  m_LocalScale: {x: 0.1, y: 0.009, z: 0.15}
+  m_LocalScale: {x: 0.38, y: 0.0342, z: 0.57}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 507735574183042834}
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  cardID: 
+  cardID: Keycard
 --- !u!114 &7335760353863798019
 MonoBehaviour:
   m_ObjectHideFlags: 0
