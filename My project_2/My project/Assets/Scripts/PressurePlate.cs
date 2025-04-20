@@ -35,17 +35,20 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rend == null) {
+        if (rend == null)
+        {
             return;
         }
-        
-        if(Pressed) {
+
+        if (Pressed)
+        {
             Debug.Log("On Press Audio Plays");
             WhenPressed?.Invoke();
             OnPress();
         }
 
-        else {
+        else
+        {
             OnExitPress();
         }
     }
@@ -69,13 +72,15 @@ public class PressurePlate : MonoBehaviour
     }
 
     // Changes the visuals on Pressure Plate on Activation.
-    private void OnPress() {
+    private void OnPress()
+    {
         rend.material = ActivatedMat;
         plate.transform.position = ActivePosition;
     }
 
     // Changes visuals on Pressure Plate on deactivation
-    private void OnExitPress() {
+    private void OnExitPress()
+    {
         rend.material = UnactivatedMat;
         plate.transform.position = InactivePosition;
 
