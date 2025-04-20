@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:My project_2/My project/Assets/Prefabs.meta
 guid: cb45f2b46a2aace4991d43a7777d903b
+========
+guid: c333f3b28c3ddba48b84169d5da1a730
+>>>>>>>> Stashed changes:My project_2/My project/Assets/Samples/XR Interaction Toolkit/3.1.1/Starter Assets/AffordanceThemes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
