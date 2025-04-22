@@ -10,15 +10,15 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/android.toolchain.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/android.toolchain.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/adjust_api_level.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/adjust_api_level.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/platforms.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/platforms.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -32,7 +32,7 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/hooks/pre/Android-Initialize.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/hooks/pre/Android-Initialize.cmake"
 		},
 		{
 			"isGenerated" : true,
@@ -64,7 +64,7 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/hooks/pre/Android.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/hooks/pre/Android.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -78,7 +78,7 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/hooks/post/Android.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/hooks/post/Android.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -127,11 +127,11 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/hooks/pre/Android-Clang.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/hooks/pre/Android-Clang.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/flags.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/flags.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -140,7 +140,7 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/build/cmake/hooks/post/Android-Clang.cmake"
+			"path" : "C:/android_ndk/android-ndk-r23b/build/cmake/hooks/post/Android-Clang.cmake"
 		},
 		{
 			"isCMake" : true,

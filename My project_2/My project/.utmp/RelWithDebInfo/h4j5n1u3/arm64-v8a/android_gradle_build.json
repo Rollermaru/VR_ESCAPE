@@ -28,8 +28,8 @@
   },
   "toolchains": {
     "toolchain": {
-      "cCompilerExecutable": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.35f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\NDK\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
-      "cppCompilerExecutable": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.35f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\NDK\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+      "cCompilerExecutable": "C:\\android_ndk\\android-ndk-r23b\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\android_ndk\\android-ndk-r23b\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
     }
   },
   "cFileExtensions": [],
