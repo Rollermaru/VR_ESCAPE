@@ -8,7 +8,7 @@ public class ExitDoorLogic : MonoBehaviour
     private bool hasWon = false;
     private bool alreadyDone = false;
 
-    [SerializeField] private GameObject ToDelete;
+    [SerializeField] private GameObject[] ToDelete;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +21,11 @@ public class ExitDoorLogic : MonoBehaviour
         hasWon = WinManager.GetComponent<DoWeWin>().win;
 
         if (hasWon && !alreadyDone) {
-            Destroy(ToDelete);
+            // Destroy(ToDelete);
+            foreach (GameObject obj in ToDelete) {
+                Destroy(obj);
+            }
+            
             Instantiate(MenacingBall, MenacingBallSpawnPosition);
 
             alreadyDone = true;
