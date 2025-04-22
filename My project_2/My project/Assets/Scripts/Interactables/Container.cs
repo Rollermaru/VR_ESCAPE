@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Collects specified item pieces and, when complete, spawns the assembled computer prefab.
-/// Icons for each required item change color upon detection.
+/// Icons for each required item swap to a designated "selected" material upon detection.
 /// </summary>
 public class ItemContainer : MonoBehaviour
 {
@@ -14,6 +14,9 @@ public class ItemContainer : MonoBehaviour
     [Header("Icon References")]
     [Tooltip("Icon GameObjects corresponding to each required item, in the same order as requiredItemIDs.")]
     public GameObject[] itemIcons;
+
+    [Tooltip("Material to apply to an icon when its piece is detected.")]
+    public Material selectedIconMaterial;
 
     [Header("Assembly Settings")]
     [Tooltip("Prefab of the fully assembled computer to spawn when all pieces are inserted.")]
@@ -45,20 +48,22 @@ public class ItemContainer : MonoBehaviour
         insertedItems.Add(id);
         Debug.Log($"Item detected: {id}");
 
-        // Change icon color to indicate presence
-        if (itemIcons != null && index < itemIcons.Length)
+        // Swap icon material to indicate presence
+        if (itemIcons != null && index < itemIcons.Length && selectedIconMaterial != null)
         {
             var renderer = itemIcons[index].GetComponent<Renderer>();
             if (renderer != null)
             {
-                // Example: set to green to show collected
-                renderer.material.color = Color.green;
+                renderer.material = selectedIconMaterial;
             }
             else
             {
-                var img = itemIcons[index].GetComponent<UnityEngine.UI.Image>();
-                if (img != null)
-                    img.color = Color.green;
+                var image = itemIcons[index].GetComponent<UnityEngine.UI.Image>();
+                if (image != null)
+                {
+                    // If it's a UI icon, tint it green as fallback
+                    image.color = Color.green;
+                }
             }
         }
 

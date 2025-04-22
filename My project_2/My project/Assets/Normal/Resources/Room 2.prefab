@@ -456,6 +456,7 @@ MonoBehaviour:
   - Red
   - Green
   itemIcons: []
+  selectedIconMaterial: {fileID: 0}
   assembledComputerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &9051667186614637420
