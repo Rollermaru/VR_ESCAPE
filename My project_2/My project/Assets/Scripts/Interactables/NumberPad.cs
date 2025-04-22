@@ -1,4 +1,5 @@
 using System;
+using Normal.Realtime;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ public class NumberPad : MonoBehaviour
     public TextMeshProUGUI inputDisplayText;
 
     private string m_CurrentEnteredCode = string.Empty;
+
+    [Header("Door Reference (Networked)")]
+    public DoorOpener doorOpener;
 
     private void Awake()
     {
@@ -64,10 +68,17 @@ public class NumberPad : MonoBehaviour
             if (correct)
             {
                 // Open the door instead of spawning a keycard
-                if (doorHandle != null)
-                    doorHandle.OpenDoorAutomatically();
+                if (doorOpener != null)
+                {
+                    RealtimeView view = doorOpener.GetComponent<RealtimeView>();
+                    if (view != null && !view.isOwnedLocallySelf)
+                        view.RequestOwnership();
+                    doorOpener.RequestOpen();
+                }
+
+                // doorHandle.OpenDoorAutomatically();
                 else
-                    Debug.LogWarning("NumberPad: DoorHandle reference not set.");
+                    Debug.LogWarning("NumberPad: DoorOpener reference not set.");
             }
             else
             {
