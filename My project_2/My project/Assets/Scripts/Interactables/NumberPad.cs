@@ -1,81 +1,94 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.Events;
-using UnityEngine.UI;
+
 public class NumberPad : MonoBehaviour
 {
+    [Header("Code Sequence")]
+    [Tooltip("The correct numeric sequence to unlock the door.")]
     public string sequence;
 
-    public KeycardSpawner cardSpawner;
+    [Header("Door Reference")]
+    [Tooltip("Drag the DoorHandle component you wish to open when the code is correct.")]
+    public DoorHandle doorHandle;
 
+    [Header("UI Display")]
+    [Tooltip("TextMeshProUGUI to show input feedback.")]
     public TextMeshProUGUI inputDisplayText;
 
-    private string m_CurrentEnteredCode = "";
+    private string m_CurrentEnteredCode = string.Empty;
 
     private void Awake()
     {
-        inputDisplayText.text = "Code Input: \n";
+        // Initialize display
+        if (inputDisplayText != null)
+            inputDisplayText.text = "Code Input:\n";
     }
 
+    /// <summary>
+    /// Called by each number button, passing its integer value (e.g. via UnityEvent).
+    /// </summary>
     public void ButtonPressed(int valuePressed)
     {
-        Debug.Log("Button Pressed: " + valuePressed);
+        // Prevent extra input once full length reached
         if (m_CurrentEnteredCode.Length >= sequence.Length)
-        {
             return;
-        }
-        //append the number to the string (it will be converted to a string automatically but we could call the converting
-        //function explicitly to make it more clear : valuePressed.ToString()
+
+        // Append digit
         m_CurrentEnteredCode += valuePressed;
 
-        //if it's the first character inputed, we reset the display string. if we were reseting when the code is entered
-        //we wouldn't have time to see the result (success/failure) so only reset on the next button press
-        if (m_CurrentEnteredCode.Length == 1)
+        // Update masked display
+        if (inputDisplayText != null)
         {
-            inputDisplayText.text += "*";
-            inputDisplayText.color = Color.black;
-        }
-        else //otherwise we append a new * to the string
-        {
-            inputDisplayText.text += "*";
-        }
-
-        if (m_CurrentEnteredCode.Length == sequence.Length)
-        {
-            //we finished typing the sequence, check if we have a number of right input equal to the sequence
-            if (m_CurrentEnteredCode == sequence)
+            if (m_CurrentEnteredCode.Length == 1)
             {
-                Debug.Log("Right sequence entered");
-                inputDisplayText.color = Color.green;
-                inputDisplayText.text = "Code Valid!";
-                //we are right! Spawn the keycard
-                cardSpawner.SpawnKeyCard();
+                inputDisplayText.text = "*";
+                inputDisplayText.color = Color.black;
             }
             else
             {
-                Debug.Log("Wrong sequenced entered");
-                inputDisplayText.color = Color.red;
-                inputDisplayText.text = "Invalid Code!";
+                inputDisplayText.text += "*";
+            }
+        }
+
+        // Check once we've entered enough digits
+        if (m_CurrentEnteredCode.Length == sequence.Length)
+        {
+            bool correct = m_CurrentEnteredCode == sequence;
+            if (inputDisplayText != null)
+            {
+                inputDisplayText.color = correct ? Color.green : Color.red;
+                inputDisplayText.text = correct ? "Code Valid!" : "Invalid Code!";
             }
 
-            //we reset the sequence checker
+            if (correct)
+            {
+                // Open the door instead of spawning a keycard
+                if (doorHandle != null)
+                    doorHandle.OpenDoorAutomatically();
+                else
+                    Debug.LogWarning("NumberPad: DoorHandle reference not set.");
+            }
+            else
+            {
+                Debug.Log("NumberPad: Wrong code entered.");
+            }
+
+            // Reset for next attempt (with display clear)
             ResetSequence(true);
         }
     }
 
+    /// <summary>
+    /// Clears the entered code and optionally resets the UI.
+    /// </summary>
     public void ResetSequence(bool clearText)
     {
-        m_CurrentEnteredCode = "";
-
-        if (clearText)
+        m_CurrentEnteredCode = string.Empty;
+        if (clearText && inputDisplayText != null)
         {
-            inputDisplayText.text = "Code Input: \n";
+            inputDisplayText.text = "Code Input:\n";
             inputDisplayText.color = Color.black;
         }
     }
-
 }
