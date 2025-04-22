@@ -41,10 +41,10 @@ public class OptimizeMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            DecimateMesh();
-        }
+        // if (Input.GetKeyDown(KeyCode.O))
+        // {
+        //     DecimateMesh();
+        // }
     }
 
     public void DecimateMesh()
