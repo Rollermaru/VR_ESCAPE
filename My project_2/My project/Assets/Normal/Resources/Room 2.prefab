@@ -455,7 +455,9 @@ MonoBehaviour:
   - Blue
   - Red
   - Green
-  doorHandle: {fileID: 6075402063222598210}
+  itemIcons: []
+  assembledComputerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &9051667186614637420
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,17 +818,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b05df4b959a144846a7f268c8eadec52, type: 3}
---- !u!114 &6075402063222598210 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4250052586479664111, guid: b05df4b959a144846a7f268c8eadec52, type: 3}
-  m_PrefabInstance: {fileID: 7974487028166775213}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311fcca5d3f77a446b399c1618ac3167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6335419088307057454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4125578371630506627, guid: b05df4b959a144846a7f268c8eadec52, type: 3}

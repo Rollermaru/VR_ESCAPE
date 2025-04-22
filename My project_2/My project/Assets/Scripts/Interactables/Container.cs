@@ -1,88 +1,85 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Collects specified item pieces and, when complete, spawns the assembled computer prefab.
+/// Icons for each required item change color upon detection.
+/// </summary>
 public class ItemContainer : MonoBehaviour
 {
     [Header("Container Settings")]
-    // List the required item IDs (for example, "red", "blue", "green")
+    [Tooltip("List the required item IDs (e.g., \"CPU\", \"GPU\", \"RAM\").")]
     public string[] requiredItemIDs;
 
-    [Header("Door Reference")]
-    // Reference to your door (or door handle) script that opens the door
-    public DoorHandle doorHandle;
+    [Header("Icon References")]
+    [Tooltip("Icon GameObjects corresponding to each required item, in the same order as requiredItemIDs.")]
+    public GameObject[] itemIcons;
 
-    // Internal list to keep track of which items have been inserted
-    private List<string> insertedItems = new List<string>();
+    [Header("Assembly Settings")]
+    [Tooltip("Prefab of the fully assembled computer to spawn when all pieces are inserted.")]
+    public GameObject assembledComputerPrefab;
 
-    // When an item enters the container's trigger, try to process it.
+    [Tooltip("Optional transform at which to spawn the assembled computer. Uses container's transform if null.")]
+    public Transform spawnPoint;
+
+    // Internal tracking of inserted piece IDs
+    private HashSet<string> insertedItems = new HashSet<string>();
+    private bool hasAssembled = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the incoming object has an Item component.
+        if (hasAssembled)
+            return;
+
+        // Check for matching Item component
         Item item = other.GetComponent<Item>();
         if (item == null)
-            return; // Not a valid item, ignore.
+            return;
 
-        // Verify that this item is one of the required ones.
-        if (System.Array.IndexOf(requiredItemIDs, item.itemID) < 0)
+        string id = item.itemID;
+        int index = System.Array.IndexOf(requiredItemIDs, id);
+        if (index < 0 || insertedItems.Contains(id))
+            return;
+
+        // Mark as inserted
+        insertedItems.Add(id);
+        Debug.Log($"Item detected: {id}");
+
+        // Change icon color to indicate presence
+        if (itemIcons != null && index < itemIcons.Length)
         {
-            Debug.Log("Item " + item.itemID + " is not accepted in this container.");
+            var renderer = itemIcons[index].GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                // Example: set to green to show collected
+                renderer.material.color = Color.green;
+            }
+            else
+            {
+                var img = itemIcons[index].GetComponent<UnityEngine.UI.Image>();
+                if (img != null)
+                    img.color = Color.green;
+            }
+        }
+
+        // If all required pieces are present, assemble
+        if (insertedItems.Count == requiredItemIDs.Length)
+            AssembleComputer();
+    }
+
+    private void AssembleComputer()
+    {
+        if (assembledComputerPrefab == null)
+        {
+            Debug.LogWarning($"AssembledComputerPrefab not set on {name}.");
             return;
         }
 
-        // If the item type is already in the container, ignore it.
-        if (insertedItems.Contains(item.itemID))
-        {
-            Debug.Log("Item " + item.itemID + " has already been placed in the container.");
-            return;
-        }
+        Vector3 pos = (spawnPoint != null ? spawnPoint.position : transform.position);
+        Quaternion rot = (spawnPoint != null ? spawnPoint.rotation : transform.rotation);
+        Instantiate(assembledComputerPrefab, pos, rot);
+        Debug.Log("Assembled computer spawned.");
 
-        // "Accept" the item:
-        // Snap the item to the container's position (or a specific attach point if desired).
-        other.transform.position = transform.position;
-        other.transform.SetParent(transform);
-        // Disable physics to keep it in place.
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.useGravity = false;
-        }
-
-        // Record that this item has been inserted.
-        insertedItems.Add(item.itemID);
-        Debug.Log("Inserted item: " + item.itemID);
-
-        // Optionally, you can add a visual effect or animation here.
-
-        // Check if all required items have been inserted.
-        if (AllItemsInserted())
-        {
-            OpenDoor();
-        }
-    }
-
-    // Helper method to check if every required item is present.
-    private bool AllItemsInserted()
-    {
-        foreach (string requiredID in requiredItemIDs)
-        {
-            if (!insertedItems.Contains(requiredID))
-                return false;
-        }
-        return true;
-    }
-
-    // Method to trigger door opening.
-    private void OpenDoor()
-    {
-        if (doorHandle != null)
-        {
-            doorHandle.OpenDoorAutomatically(); // Example door opening method.
-            Debug.Log("All required items have been placed in the container. Door is now open!");
-        }
-        else
-        {
-            Debug.LogWarning("Door handle reference is missing!");
-        }
+        hasAssembled = true;
     }
 }

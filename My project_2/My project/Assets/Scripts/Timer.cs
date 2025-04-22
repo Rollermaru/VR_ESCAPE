@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+// using UnityEngine.SceneManagement;
+using UnityEngine.Diagnostics;
 
 public class Timer : MonoBehaviour
 {
@@ -56,13 +57,18 @@ public class Timer : MonoBehaviour
         if (timeToDeath <= 0.2f) {
 
             // No provided level to load
-            if (levelToLoad == null) {
-                Debug.Log("No level to load!");
-                return;
-            }
+            // if (levelToLoad == null) {
+            //     Debug.Log("No level to load!");
+            //     return;
+            // }
 
             // Load scene on game over
-            SceneManager.LoadScene(levelToLoad);
+            // SceneManager.LoadScene(levelToLoad);
+
+
+            // Crash on game over LMAO
+            Utils.ForceCrash(ForcedCrashCategory.Abort);
+
         }
     }
 
