@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequence: 1234
-  cardSpawner: {fileID: 7729037518934087044}
+  doorHandle: {fileID: 0}
   inputDisplayText: {fileID: 8255383217476815193}
 --- !u!114 &7729037518934087044
 MonoBehaviour:
