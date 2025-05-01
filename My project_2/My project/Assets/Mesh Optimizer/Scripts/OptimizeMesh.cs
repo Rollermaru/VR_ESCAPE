@@ -21,48 +21,35 @@ public class LevelScriptEditor : Editor
         {
             myTarget.SaveMesh();
         }
+
     }
 }
 #endif
-
 [ExecuteInEditMode]
 public class OptimizeMesh : MonoBehaviour
 {
     [Range(0.0f, 1.0f)]
     [SerializeField] float _quality = 0.5f;
-
     MeshFilter _renderer;
     Mesh _mesh;
-
     void Start()
     {
         _renderer = GetComponent<MeshFilter>();
-
-        if (_renderer == null)
-        {
-            _renderer = GetComponentInChildren<MeshFilter>();
-            if (_renderer == null)
-            {
-                Debug.LogWarning("OptimizeMesh: No MeshFilter found on this GameObject or its children.");
-                return;
-            }
-        }
-
         _mesh = _renderer.sharedMesh;
     }
-
 #if UNITY_EDITOR
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.O))
-    //     {
-    //         DecimateMesh();
-    //     }
-    // }
+    // Update is called once per frame
+    void Update()
+    {
+        // if (Input.GetKeyDown(KeyCode.O))
+        // {
+        //     DecimateMesh();
+        // }
+    }
 
     public void DecimateMesh()
     {
-        if (!EditorApplication.isPlaying && _mesh != null)
+        if (!EditorApplication.isPlaying)
         {
             var meshSimplifier = new UnityMeshSimplifier.MeshSimplifier();
             meshSimplifier.Initialize(_mesh);
@@ -74,7 +61,7 @@ public class OptimizeMesh : MonoBehaviour
 
     public void SaveMesh()
     {
-        if (!EditorApplication.isPlaying && _renderer != null)
+        if (!EditorApplication.isPlaying)
         {
             MeshSaverEditor.SaveMesh(_renderer.sharedMesh, "Optimized__" + gameObject.name, false, true);
         }
