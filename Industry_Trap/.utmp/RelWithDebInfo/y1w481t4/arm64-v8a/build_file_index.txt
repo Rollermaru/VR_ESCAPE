@@ -1,0 +1,2 @@
+E:\Projects\VR_ESCAPE\Industry_Trap\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+E:\Projects\VR_ESCAPE\Industry_Trap\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

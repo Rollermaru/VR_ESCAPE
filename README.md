@@ -1,4 +1,11 @@
 # INDUSTRY TRAP
+
+## Video
+
+- Video goes here
+
+## About
+
 ![Image shows the doorway of an old rundown factory with pipes and machinery surrounding the doorway. The room is illuminated with dingy, yellow-tinted lights. Beyond the doorway is a terminal that glows in red, requesting the user to input a code. Above the doorway is a red timer at 4 minutes 57 seconds.](https://media.discordapp.net/attachments/1336467829758885962/1370863336299827300/image.png?ex=68210b78&is=681fb9f8&hm=f448ec136547cd9eb3bc3ef1261a35d2cc287258eb58edb554779ef075b8ea6e&=&format=webp&quality=lossless&width=1522&height=856)
 Escape rooms are a rewarding activity a lot of people love to participate in. They give us an opportunity to test our ability to solve problems, collaborate with other people, and most importantly, enjoy an experience together. Adding in horror to an escape room amplifies this, being placed in a spooky environment with your closest friends or family members is a great way to bond while experiencing some thrills. Horror escape rooms in particular are pretty popular in the U.S.. Here in Blacksburg for instance, the escape room company Puzzlr offers a horror escape room (https://www.puzzlr.us/).
 
@@ -8,7 +15,7 @@ With VR technology, Industry Trap allows you to be in a virtual horror escape ro
 
 # Installation Guide
 1. Follow the video guide to download SideQuest VR on Desktop & Headset, as well as enabling developer mode on your headset using the Meta Horizon app on your phone: https://www.youtube.com/watch?v=wNku19Hl9Dw 
-2. Download the game APK from our github repository (replace this with the more specific spot later) to your PC 
+2. Download the game APK from our github repository (within) to your PC 
 3. Plug in your headset to your Desktop. Within the SideQuest VR Desktop application, click on the “Install APK file from folder on computer” button:
    
 ![](https://media.discordapp.net/attachments/860002427578613760/1370889279865356338/image.png?ex=682123a2&is=681fd222&hm=1f871ecfd745aeb2345ac1dd5761dccf5f70281a3838b0b858eb5c5afdc72db6&=&format=webp&quality=lossless)
