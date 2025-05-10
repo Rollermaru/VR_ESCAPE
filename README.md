@@ -6,6 +6,9 @@ What if you wanted to experience a horror escape room without having to go to a 
 
 With VR technology, Industry Trap allows you to be in a virtual horror escape room with another player. In this game, you and your partner will play as two factory workers working a late night shift in a creepy, run-down factory. Upon entering the factory, the door mysteriously locks, leaving the two of you trapped. The two of you will then need to work together to find your way out of the factory. To do this, you will solve a series of puzzles that lead to the factory’s control room, which contains the master lock. These puzzles will require careful collaboration. Some puzzles will involve the two of you working side-by-side. Within 10 minutes, you need to solve 
 
+# Trailer (WIP)
+- Video goes here
+
 # Installation Guide
 1. Follow the video guide to download SideQuest VR on Desktop & Headset, as well as enabling developer mode on your headset using the Meta Horizon app on your phone: https://www.youtube.com/watch?v=wNku19Hl9Dw 
 2. Download the game APK from our github repository (replace this with the more specific spot later) to your PC 
