@@ -11,7 +11,8 @@ Escape rooms are a rewarding activity a lot of people love to participate in. Th
 
 What if you wanted to experience a horror escape room without having to go to a physical location? Instead, you could enjoy the feeling of your adrenaline pumping from the scares and your bond with your family and friends deepening as you solve puzzles in a horror escape room from the comfort of your own home. Industry Trap gives you that exact possibility. 
 
-With VR technology, Industry Trap allows you to be in a virtual horror escape room with another player. In this game, you and your partner will play as two factory workers working a late night shift in a creepy, run-down factory. Upon entering the factory, the door mysteriously locks, leaving the two of you trapped. The two of you will then need to work together to find your way out of the factory. To do this, you will solve a series of puzzles that lead to the factory’s control room, which contains the master lock. These puzzles will require careful collaboration. Some puzzles will involve the two of you working side-by-side. Within 10 minutes, you need to solve 
+With VR technology, Industry Trap allows you to be in a virtual horror escape room with another player. In this game, you and your partner will play as two factory workers working a late night shift in a creepy, run-down factory. Upon entering the factory, the door mysteriously locks, leaving the two of you trapped. The two of you will then need to work together to find your way out of the factory. To do this, you will solve a series of puzzles that lead to the factory’s control room, which contains the master lock. These puzzles will require careful collaboration. Some puzzles will involve the two of you working side-by-side. Within 10 minutes, you need to solve these puzzles and get to the control room, so you can get out of this eerie factory. Are you up for the challenge?
+
 
 # INSTALLATION GUIDE
 
