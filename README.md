@@ -6,7 +6,7 @@
 
 ## ABOUT
 
-![Image shows the doorway of an old rundown factory with pipes and machinery surrounding the doorway. The room is illuminated with dingy, yellow-tinted lights. Beyond the doorway is a terminal that glows in red, requesting the user to input a code. Above the doorway is a red timer at 4 minutes 57 seconds.](https://imgur.com/a/Qhl2KPo)
+![Image shows the doorway of an old rundown factory with pipes and machinery surrounding the doorway. The room is illuminated with dingy, yellow-tinted lights. Beyond the doorway is a terminal that glows in red, requesting the user to input a code. Above the doorway is a red timer at 4 minutes 57 seconds.](https://i.imgur.com/n3N5KgZ.png)
 Escape rooms are a rewarding activity a lot of people love to participate in. They give us an opportunity to test our ability to solve problems, collaborate with other people, and most importantly, enjoy an experience together. Adding in horror to an escape room amplifies this, being placed in a spooky environment with your closest friends or family members is a great way to bond while experiencing some thrills. Horror escape rooms in particular are pretty popular in the U.S.. Here in Blacksburg for instance, the escape room company Puzzlr offers a horror escape room (https://www.puzzlr.us/).
 
 What if you wanted to experience a horror escape room without having to go to a physical location? Instead, you could enjoy the feeling of your adrenaline pumping from the scares and your bond with your family and friends deepening as you solve puzzles in a horror escape room from the comfort of your own home. Industry Trap gives you that exact possibility. 
