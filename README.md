@@ -1,8 +1,9 @@
 # INDUSTRY TRAP
 
 ## TRAILER
-
-[https://youtu.be/xIGZBRrOZUM](https://www.youtube.com/watch?v=xIGZBRrOZUM) 
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=xIGZBRrOZUM" target="_blank">
+ <img src="http://img.youtube.com/vi/xIGZBRrOZUM/mqdefault.jpg" alt="Watch the video" width="426" height="240" border="10" />
+</a>
 
 ## ABOUT
 
